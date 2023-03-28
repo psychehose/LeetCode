@@ -6,3 +6,11 @@
 project.xcworkspace/
 xcuserdata/
 
+
+# Mac OS X
+*.DS_Store
+# Xcode
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/
+
