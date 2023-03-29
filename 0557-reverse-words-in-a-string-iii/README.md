@@ -19,3 +19,17 @@
 	<li>All the words in <code>s</code> are separated by a single space.</li>
 </ul>
 </div>
+
+
+
+### Best
+
+```swift
+func reverseWords(_ s: String) -> String {
+	return s.components(separatedBy: " ")
+			.map { String($0.reversed()) }
+			.joined(separator: " ")
+}
+```
+
+components와 joined에 대해 숙지하자
