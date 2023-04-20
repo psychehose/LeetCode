@@ -13,53 +13,53 @@
  *     }
  * }
  */
-// class Solution {
-//     func isLastInLevel(_ target: Int) -> Bool {
-//         var copy = target + 1
-//         while(copy > 1) {
-//             if copy % 2 != 0 {
-//                 return false
-//             }
-//             copy = copy / 2
-//         }
-//         return true
-//     }
+class Solution {
+    func isLastInLevel(_ target: Int) -> Bool {
+        var copy = target + 1
+        while(copy > 1) {
+            if copy % 2 != 0 {
+                return false
+            }
+            copy = copy / 2
+        }
+        return true
+    }
     
-//     func connect(_ root: Node?) -> Node? {
+    func connect(_ root: Node?) -> Node? {
         
-//         var queue: [Node] = []
-//         var prev: Node?
-//         var count = 1
+        var queue: [Node] = []
+        var prev: Node?
+        var count = 1
 
-//         guard var head = root else {
-//             return nil
-//         }
+        guard var head = root else {
+            return nil
+        }
 
-//         queue.append(head)
+        queue.append(head)
         
-//         while(!queue.isEmpty) {
-//             var node = queue.removeFirst()
-//             prev?.next = node
+        while(!queue.isEmpty) {
+            var node = queue.removeFirst()
+            prev?.next = node
 
-//             if isLastInLevel(count) {
-//                 prev = nil
-//             }
-//             else {
-//                 prev = node
-//             }
-//             count += 1
-//             if var left = node.left {
-//                 queue.append(left)
-//             }
+            if isLastInLevel(count) {
+                prev = nil
+            }
+            else {
+                prev = node
+            }
+            count += 1
+            if var left = node.left {
+                queue.append(left)
+            }
 
-//             if var right = node.right {
-//                 queue.append(right)
-//             }
-//         }
+            if var right = node.right {
+                queue.append(right)
+            }
+        }
 
-//         return root
-//     }
-// }
+        return root
+    }
+}
 
 
 
@@ -67,15 +67,15 @@
 
 // MARK: - Best Recursion
 
-class Solution {
-    func connect(_ root: Node?) -> Node? {
-        guard let root = root else {
-            return nil
-        }
-        root.left?.next = root.right
-        root.right?.next = root.next?.left
-        connect(root.left)
-        connect(root.right)
-        return root
-    }
-}
+// class Solution {
+//     func connect(_ root: Node?) -> Node? {
+//         guard let root = root else {
+//             return nil
+//         }
+//         root.left?.next = root.right
+//         root.right?.next = root.next?.left
+//         connect(root.left)
+//         connect(root.right)
+//         return root
+//     }
+// }
