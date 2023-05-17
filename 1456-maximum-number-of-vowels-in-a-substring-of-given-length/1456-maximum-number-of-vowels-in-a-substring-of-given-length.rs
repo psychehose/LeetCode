@@ -24,9 +24,7 @@ impl Solution {
             
             max_count = cmp::max(vowel_count, max_count);
         }
-        
         max_count
-        
     }
 }
 
@@ -34,6 +32,5 @@ pub fn is_vowel(c: &str) -> bool {
     if c == "a" || c == "e" || c == "i" || c == "o" || c == "u" {
         return true;
     }
-
         false
 }
