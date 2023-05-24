@@ -2,10 +2,8 @@ impl Solution {
     pub fn longest_ones(nums: Vec<i32>, k: i32) -> i32 {
         
         use std::cmp;
-
         let mut res = 0;
         let mut flip = k;
-        
         let mut left = 0;
         let mut right = 0;
         
@@ -25,7 +23,6 @@ impl Solution {
                     right += 1;
                 }
             }
-            
             let mut length = (right - left) as i32;
             res = cmp::max(res, length);
         }
