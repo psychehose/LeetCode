@@ -10,7 +10,6 @@ impl Solution {
         let mut right = 0;
         
         while right < nums.len() {
-            // right 이동
             if flip > 0 {
                 if nums[right] == 0 {
                     flip -= 1;
@@ -28,11 +27,8 @@ impl Solution {
             }
             
             let mut length = (right - left) as i32;
-            println!("{}", length);
             res = cmp::max(res, length);
         }
-        
-
         res as i32
     }
 }
