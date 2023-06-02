@@ -21,13 +21,7 @@ class Solution {
         
         var keys1 = set1Hash.keys
         var keys2 = set2Hash.keys
-        
-        
-        // print("Sum1 == ", sum1)
-        // print("Sum2 == ", sum2)
-        
-        // print("Key1 == ", keys1)
-        // print("Key2 == ", keys2)
+
         
         return sum1 == sum2 && keys1 == keys2
         
