@@ -2,14 +2,12 @@ class Solution {
     func asteroidCollision(_ asteroids: [Int]) -> [Int] {
         
         var result = [Int]()
-        
-        
+    
         for asteroid in asteroids {
             if result.isEmpty { 
                 result.append(asteroid)     
                 continue
             }
-            
             
             while true {
                 guard let el = result.popLast() else {
