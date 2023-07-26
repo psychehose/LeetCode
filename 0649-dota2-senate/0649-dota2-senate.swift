@@ -49,7 +49,6 @@ class Solution {
                 }
 
                 var target_index = arr_senate.firstIndex(of:"R")!
-                
                 arr_senate.remove(at: target_index)
                 arr_senate.append(senator)
                 
