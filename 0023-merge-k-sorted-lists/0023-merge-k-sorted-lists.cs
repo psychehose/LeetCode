@@ -13,13 +13,10 @@ public class Solution {
     public ListNode MergeKLists(ListNode[] lists) {
         
         ListNode merged = null;
-        
-        List<ListNode> _lists = lists.ToList();
 
-        while(_lists.Count != 0) {
+        for (int i = 0; i < lists.Length; i++) {
             
-            ListNode poped = _lists[_lists.Count - 1];
-            _lists.RemoveAt(_lists.Count - 1);
+            ListNode poped = lists[i];
 
             ListNode root = new ListNode(-1000000);
             ListNode cur = root;
@@ -34,7 +31,7 @@ public class Solution {
                     cur = cur.next;
                     break;
                 }
-                else if (merged == null) {
+                if (merged == null) {
                     cur.next = poped;
                     cur = cur.next;
                     break;
@@ -59,7 +56,6 @@ public class Solution {
             merged = root.next;
         }
         return merged;
-        
         
     }
 }
