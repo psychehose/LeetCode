@@ -34,15 +34,12 @@ public class Solution {
                     cur = cur.next;
                     break;
                 }
-
-                if (merged == null) {
+                else if (merged == null) {
                     cur.next = poped;
                     cur = cur.next;
                     break;
                 }
-
                 // ListNode가 Empty가 아닌 경우
-
                 if (cur.next == null) {
                     if(poped.val >= merged.val) {
                         // merged.val을 넥스트로
@@ -56,13 +53,11 @@ public class Solution {
                         poped = poped.next;
                     }   
                 }
-                
                 cur = cur.next;
             }
             // cur가 다 합쳐진 merged -> merged에 넣자.
             merged = root.next;
         }
-
         return merged;
         
         
