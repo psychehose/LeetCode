@@ -29,18 +29,19 @@ public class Solution {
                 
                 // 하나의 ListNode가 Null인 경우 나머지 노드를 넣는다.
                 if (poped == null) {
+                    // poped가 null
                     cur.next = merged;
                     cur = cur.next;
                     break;
                 }
                 else if (merged == null) {
+                    // merged가 null
                     cur.next = poped;
                     cur = cur.next;
                     break;
                 }
-                
-                // ListNode가 Empty가 아닌 경우
                 else {
+                    // 둘 다 Null이 아닌 경우
                     if(poped.val >= merged.val) {
                         // merged.val을 넥스트로
                         ListNode next = new ListNode(merged.val);
@@ -56,10 +57,9 @@ public class Solution {
                     }   
                 }
             }
-            // cur가 다 합쳐진 merged -> merged에 넣자.
+            // poped와 merged를 다 merge 했음 -> merged를 업데이트
             merged = root.next;
         }
         return merged;
-        
     }
 }
