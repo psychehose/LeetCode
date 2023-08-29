@@ -12,53 +12,24 @@
 public class Solution {
     public ListNode ReverseBetween(ListNode head, int left, int right) {
         
-        if (left == right || head.next == null) {
-            return head;
-        }
-        
-        ListNode prehead = new ListNode(-100000);
+        ListNode prehead = new ListNode();
         prehead.next = head;
-        ListNode current = head;
+    
+        ListNode prev = prehead;
         
-        ListNode leftNode = prehead;
-        ListNode rightNode = null;
-
-        int count = 0;
-        
-        List<ListNode> stack = new List<ListNode>();
-        
-        while(current != null) {
-
-            count++;
-
-            if (count == left - 1) {
-                leftNode = current;
-            }
-            
-            else if (count >= left && count <= right) {
-                stack.Add(current);
-            }
-            
-            else if (count == right + 1) {
-                rightNode = current;
-            }
-
-            current = current.next;
+        for (int i = 0; i < left - 1; i++) {
+            prev = prev.next;
         }
         
+        ListNode current = prev.next;
         
-        ListNode preheadReversed = new ListNode();
-        ListNode reversed = preheadReversed;
-        
-        for (int i = 0; i < stack.Count; i++) {
-            ListNode node = new ListNode(stack[stack.Count - 1 - i].val);
-            reversed.next = node;
-            reversed = reversed.next;
+        for (int i = 0 ; i < right - left; i++) {
+            ListNode forw = current.next;
+            current.next = forw.next;
+            forw.next = prev.next;
+            prev.next = forw;
         }
-
-
-        reversed.next = rightNode;
-        leftNode.next = preheadReversed.next;
+        
         return prehead.next;
 
     }
