@@ -11,20 +11,26 @@
  */
 public class Solution {
     public bool HasCycle(ListNode head) {
-        // cur_index
         
-        int len = 0;
-
-        while(head != null) {
-            len ++;
-
-            if(len > 10000) {
+        if (head == null) {
+            return false;
+        }
+        
+        
+        ListNode slow = head;
+        ListNode fast = head;
+        
+        while(fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            
+            if(slow == fast) {
                 return true;
             }
-            head = head.next;
         }
         
         return false;
+        
         
     }
 }
