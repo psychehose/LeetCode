@@ -48,11 +48,9 @@ public class Solution {
             before.next = null;
 
             reorder.next = cur.next;
-            cur.next = reorder;
-            
+            cur.next = reorder;   
             cur = cur.next.next;
         }
-        
         
         
         return;
