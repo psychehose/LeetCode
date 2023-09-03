@@ -1,34 +1,26 @@
 public class Solution {
     public int LongestConsecutive(int[] nums) {
         
+        if(nums.Length < 2) { return nums.Length; }
         
-        if(nums.Length == 0) { return 0; }
-        
-        // Sort를 한다. O(n)
-        
-        int[] sorted = nums.Distinct().OrderBy(n=>n).ToArray();
-        
-        
-        int prev = sorted[0];
-        
-        int seq_count = 1;
+        HashSet<int> set = new HashSet<int>(nums);
 
-        int max = 1;
+        int longest = 0;
         
-        for (int i = 1; i < sorted.Length; i++) {
+        foreach(int n in set)  {
             
-            if(sorted[i] == prev + 1) {
-                seq_count++;
-            }
+            if(!set.Contains(n-1)) {
 
-            else {
-                seq_count = 1;
+                int length = 0;
+                
+                while(set.Contains(n+length)) {
+
+                    length++;
+                    longest = Math.Max(longest, length);
+                }   
             }
-            
-            max = Math.Max(max, seq_count);
-            prev = sorted[i];
         }
-        
-        return max;
+
+        return longest;        
     }
 }
