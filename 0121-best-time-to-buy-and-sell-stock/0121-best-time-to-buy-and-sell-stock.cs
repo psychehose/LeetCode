@@ -1,25 +1,26 @@
 public class Solution {
     public int MaxProfit(int[] prices) {
         
+        
         int max = 0;
         
-        int input = 100000;
         
         int left = 0;
+        int right = 1;
         
-        
-        for (int i = 0; i < prices.Length - 1; i++) {
+        while(right < prices.Length) {
             
-            if(input <= prices[i]) {
+            if(prices[left] >=  prices[right]) {
+                left = right;
+                right = left +1;
                 continue;
             }
-
-            input = prices[i];
-
-            for (int j = i + 1; j < prices.Length; j++) {
-                max = Math.Max(max, prices[j] - input);
-            }
+               
+            max = Math.Max(max, prices[right] - prices[left]);
+            right++;
         }
+        
+        
 
 
         return max;
