@@ -19,18 +19,16 @@ public class Solution {
             dict[s[right]] = dict[s[right]] + 1;
             
             maxf = Math.Max(maxf, dict[s[right]]);
-                        
-            if((right - left) + 1 - maxf <= k) {
-
-                res = Math.Max(right - left + 1, res);
-                right++;
-                
-            } else {
+            
+            
+            if (right - left + 1 - maxf > k) {
                 dict[s[left]] = dict[s[left]] - 1;
                 left++;
-                right++;
             }
 
+            res = Math.Max(right - left + 1, res);
+            right++;
+                        
         }
         
         return res;
