@@ -16,35 +16,22 @@ public class Solution {
         
         if (root == null) { return 0; }
         
+        Stack<(TreeNode, int)> stack = new Stack<(TreeNode, int)>();
         
-        Queue<TreeNode> q = new Queue<TreeNode>();
-
-        q.Enqueue(root);
-        int level = 0;
+        stack.Push((root, 1));
+        int res = 1;
         
-        while (!(q.Count == 0)) {
+        
+        while (!(stack.Count() == 0)) {
+            (TreeNode node, int depth) = stack.Pop();
             
-            int len = q.Count();
-            
-            for (int i = 0; i < len; i++) {
-                TreeNode node = q.Dequeue();
-                
-                if (node.left != null) {
-                    q.Enqueue(node.left);
-                }
-                
-                if (node.right != null) {
-                    q.Enqueue(node.right);
-                }
+            if (node != null) {
+                res = Math.Max(res, depth);
+                stack.Push((node.left, depth + 1));
+                stack.Push((node.right, depth + 1));
             }
-            
-            level += 1;
         }
         
-        return level;
-        
-        
-        
-        
+        return res;
     }
 }
