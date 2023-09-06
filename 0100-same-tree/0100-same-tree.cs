@@ -14,7 +14,7 @@
 public class Solution {
     public bool IsSameTree(TreeNode p, TreeNode q) {
         
-        // Using BFS
+        // Using DFS
 
         if(p != null && q != null) {
             if (p.val != q.val) {
