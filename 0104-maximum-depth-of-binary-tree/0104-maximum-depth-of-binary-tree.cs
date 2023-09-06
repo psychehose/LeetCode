@@ -17,27 +17,7 @@ public class Solution {
         if (root == null) { return 0; }
 
         
-        int dfs(TreeNode root, int v) {
-            if(root == null) { return v;}
-
-            int l = v;
-            int r = v;
-
-            int max = v;
-            
-            if (root.left != null) {
-                l = l + 1;
-            }
-            if (root.right != null) {
-                r = r + 1;
-            }
-            
-            max = Math.Max(dfs(root.left, l), dfs(root.right, r));
-
-            return max;
-        }
-        
-        return dfs(root,1);
+        return 1 + Math.Max(MaxDepth(root.left), MaxDepth(root.right));
         
         
         
