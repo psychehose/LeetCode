@@ -16,15 +16,10 @@ public class Solution {
         
         // Using BFS
 
-        bool same = false;
-        
         if(p != null && q != null) {
             if (p.val != q.val) {
                 return false;
-            } else {
-                same = true;
             }
-
         } else if (p != null || q != null) {
             return false;
         } else {
