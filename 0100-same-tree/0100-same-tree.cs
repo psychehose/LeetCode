@@ -31,7 +31,7 @@ public class Solution {
             return true;
         }  
         
-        return same && IsSameTree(p.left, q.left) && IsSameTree(p.right, q.right);
+        return IsSameTree(p.left, q.left) && IsSameTree(p.right, q.right);
                 
     }
 }
