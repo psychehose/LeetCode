@@ -21,11 +21,10 @@ public class Solution {
             } else if (p.val < cur.val && q.val < cur.val) {
                 cur = cur.left;
             } else {
-                break;
+                return cur;
             }
         }
 
-        
         return cur;
         
 
