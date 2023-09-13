@@ -14,19 +14,14 @@
 public class Solution {
     public bool IsSameTree(TreeNode p, TreeNode q) {
         
-        // Using DFS
-
-        if(p != null && q != null) {
-            if (p.val != q.val) {
-                return false;
-            }
-        } else if (p != null || q != null) {
-            return false;
-        } else {
+        if (p == null && q == null) {
             return true;
-        }  
+        }
         
-        return IsSameTree(p.left, q.left) && IsSameTree(p.right, q.right);
-                
+        else if (p == null || q == null) {
+            return false;
+        }
+        
+        return  (p.val == q.val) && IsSameTree(p.left, q.left) && IsSameTree(p.right, q.right);
     }
 }
