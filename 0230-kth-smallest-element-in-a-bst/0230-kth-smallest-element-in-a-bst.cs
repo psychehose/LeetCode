@@ -14,25 +14,30 @@
 public class Solution {
     public int KthSmallest(TreeNode root, int k) {
         
-        List<int> list = new List<int>();
-
-        void Inorder(TreeNode node) {
+        
+        int n = 0;
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        TreeNode cur = root;
+        
+        while((cur != null) || (stack.Count != 0)) {
             
-            if (node == null) {
-                return;
+            while(cur != null) {
+                stack.Push(cur);
+                cur = cur.left;
             }
-            
-            Inorder(node.left);
-            
-            list.Add(node.val);
+            cur = stack.Pop();
 
-            Inorder(node.right);
-                
+            n++;
+            
+            if (n == k) {
+                return cur.val;
+            }
+
+            cur = cur.right;
         }
         
-        Inorder(root);
         
-        return list[k-1];
+        return -1;
     }
     
     
